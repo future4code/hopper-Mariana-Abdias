@@ -44,12 +44,9 @@ function imprimeIdade() {
 
 function calculaIMC(peso, altura) {
   // implemente sua lógica aqui
-  
-  const pesoUsuario = prompt("Digite seu peso em kg")
-  const alturaUsuario = prompt("Digite sua altura em metros")
-  const imc = (Number(pesoUsuario) / (Number(alturaUsuario) * Number(alturaUsuario)))
 
-  return imc
+
+  return imc = (peso / (altura * altura))
   
 }
 
@@ -150,22 +147,35 @@ function checaRenovacaoRG() {
   const anoAtual = Number(prompt("Em que ano estamos?"))
   const anoNascimento = Number(prompt("Qual ano você nasceu?"))
   const anoCarteiradeIdentidade = Number(prompt("Em que ano sua carteira de identidade foi emitida?"))
+  const idade = anoAtual - anoNascimento
+  const anoRg = anoAtual - anoCarteiradeIdentidade
 
-    if (anoAtual - anoNascimento <= 20 && anoAtual - anoCarteiradeIdentidade === 5) {
-       console.log("Deve ser renovada");
-    }else if (anoAtual - anoNascimento > 20 && anoAtual - anoNascimento <= 50 && anoAtual - anoCarteiradeIdentidade === 10) {
-       console.log("Deve ser renovada");
-    }else if (anoAtual - anoNascimento > 50) {
-      console.log("Deve ser renovada de 15 em 15 anos");
+    if (idade <= 20) {
+       console.log(anoRg >= 5);
+    }else if (idade > 20 && idade <= 50) {
+       console.log(anoRg >= 10);
+    }else if (idade > 50) {
+      console.log(anoRg >= 15);
     }
-
-
     
 }
+
+
+
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
+
+  const bissextoMultiplo400 = ano % 400
+  const bissextoMultiplo4 = ano % 4 
+  const bissextoMultiplo100 = ano % 100
+  
+  if (bissextoMultiplo4 === 0 && (bissextoMultiplo100 !== 0 || bissextoMultiplo400 === 0)) {
+    return true;
+  } else {
+    return false;
+  }
 
 }
 
@@ -177,13 +187,6 @@ function checaValidadeInscricaoLabenu() {
   const ensinoMedio = prompt("Você possui ensino médio completo?")
   const disponibilidadeHorario = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
 
-  const resultado = (idadeUsuario && ensinoMedio && disponibilidadeHorario)
-
-  if (resultado =  true) {
-    console.log("Sua inscrição é válida");
-  } else if (resultado = false) {
-    console.log("Sua inscrição não é válida")
-    
-  }
+  console.log(idadeUsuario === "sim" && ensinoMedio === "sim" && disponibilidadeHorario === "sim")
 
 }
