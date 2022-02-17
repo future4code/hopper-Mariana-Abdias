@@ -158,8 +158,24 @@
 // parametro("Meu nome é Mariana")
 
 // b. 
+// const somarDoisNumeros = (num1, num2) => {
+    
+//     const soma = num1 + num2
+//     parametro(soma)
+
+// }
+
+// somarDoisNumeros(3, 5)
 
 
+// 2. 
 
+// function teoremaDePitagoras(cateto1, cateto2) {
 
-// 2.
+//     const hipotenusa = Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2))
+//     return hipotenusa
+
+// }
+
+// console.log(teoremaDePitagoras(2, 4))
+
