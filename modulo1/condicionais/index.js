@@ -142,25 +142,331 @@
 // Exercício 2.
 
 const nomeCompleto = prompt("Qual o seu nome completo?")
-const tipoJogo = prompt("Qual tipo de jogo você quer ver? Digite IN para (Jogos Internacional) ou digite DO para (Jogos Domésticos)")
-const etapaJogo = prompt("Qual etapa do jogo você quer ver? Digite SF para (semi-final), digite DT para (decisão de terceiro lugar) ou digite FI para (decisão de final)")
-const categoria = prompt("Qual a categoria você quer? Digite 1, 2, 3 ou 4")
+const tipoJogo = prompt("Qual tipo de jogo você quer ver? Digite IN para (Jogos Internacionais) ou digite DO para (Jogos Nacionais)").toUpperCase()
+const etapaJogo = prompt("Qual etapa do jogo você quer ver? Digite SF para (jogos da SemiFinais), digite DT para (decisão de terceiro lugar) ou digite FI para (decisão da final)").toUpperCase()
+const categoria = Number(prompt("Qual a categoria você quer? Digite 1, 2, 3 ou 4"))
 const quantidadeIngressos = Number(prompt("Quantos ingressos?"))
 
-
-if (tipoJogo === "DO" && etapaJogo === "SF" && categoria = "1") {
-    console.log(`---Dados da compra--- 
-        Nome do cliente:  ${nomeCompleto}
-        Tipo do jogo:  Nacional 
-        Etapa do jogo:  Final 
-        Categoria:  1 
-        Quantidade de Ingressos:  10 ingressos 
-        ---Valores--- 
-        Valor do ingresso:  R$ 1980
-        Valor total:  R$ 19800
-        `)
-} else if () {
-    console.log()
-} else {
-    console.log()
+const nacionalSemiFinal = {
+    tipoDeJogo: 'Nacional',
+    jogo: 'Semi Final',
+    categoria1: 1320,
+    categoria2: 880,
+    categoria3: 550,
+    categoria4: 220
 }
+
+const nacionalTerceiroLugar = {
+    tipoDeJogo: 'Nacional',
+    jogo: 'Terceiro Lugar',
+    categoria1: 660,
+    categoria2: 440,
+    categoria3: 330,
+    categoria4: 170
+}
+
+const nacionalFinal = {
+    tipoDeJogo: 'Nacional',
+    jogo: 'Final',
+    categoria1: 1980,
+    categoria2: 1320,
+    categoria3: 880,
+    categoria4: 330
+}
+
+const internacionalSemiFinal = {
+    tipoDeJogo: 'Internacional',
+    jogo: 'Semi Final',
+    categoria1: 1320 / 4.10,
+    categoria2: 880 / 4.10,
+    categoria3: 550 / 4.10,
+    categoria4: 220 / 4.10
+}
+
+const internacionalTerceiroLugar = {
+    tipoDeJogo: 'Internacional',
+    jogo: 'Terceiro Lugar',
+    categoria1: 660 / 4.10,
+    categoria2: 440 / 4.10,
+    categoria3: 330 / 4.10,
+    categoria4: 170 / 4.10
+}
+
+const internacionalFinal = {
+    tipoDeJogo: 'Internacional',
+    jogo: 'Final',
+    categoria1: 1980 / 4.10,
+    categoria2: 1320 / 4.10,
+    categoria3: 880 / 4.10,
+    categoria4: 330 / 4.10
+}
+
+
+if (tipoJogo === "DO" && etapaJogo === "SF" && categoria === 1) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalSemiFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalSemiFinal.categoria1}
+    Valor total:  R$ ${nacionalSemiFinal.categoria1 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "SF" && categoria === 2) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalSemiFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalSemiFinal.categoria2}
+    Valor total:  R$ ${nacionalSemiFinal.categoria2 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "SF" && categoria === 3) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalSemiFinal.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalSemiFinal.categoria3}
+    Valor total:  R$ ${nacionalSemiFinal.categoria3 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "SF" && categoria === 4) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalSemiFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalSemiFinal.categoria4}
+    Valor total:  R$ ${nacionalSemiFinal.categoria4 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "DT" && categoria === 1){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${nacionalTerceiroLugar.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalTerceiroLugar.categoria1}
+    Valor total:  R$ ${nacionalTerceiroLugar.categoria1 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "DT" && categoria === 2){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${nacionalTerceiroLugar.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalTerceiroLugar.categoria2}
+    Valor total:  R$ ${nacionalTerceiroLugar.categoria2 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "DT" && categoria === 3){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${nacionalTerceiroLugar.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalTerceiroLugar.categoria3}
+    Valor total:  R$ ${nacionalTerceiroLugar.categoria3 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "DT" && categoria === 4){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${nacionalTerceiroLugar.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalTerceiroLugar.categoria4}
+    Valor total:  R$ ${nacionalTerceiroLugar.categoria4 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "FI" && categoria === 1){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalFinal.categoria1}
+    Valor total:  R$ ${nacionalFinal.categoria1 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "FI" && categoria === 2){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalFinal.categoria2}
+    Valor total:  R$ ${nacionalFinal.categoria2 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "FI" && categoria === 3){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalFinal.categoria3}
+    Valor total:  R$ ${nacionalFinal.categoria3 * quantidadeIngressos}`)
+} else if (tipoJogo === "DO" && etapaJogo === "FI" && categoria === 4){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${nacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${nacionalFinal.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: R$ ${nacionalFinal.categoria4}
+    Valor total:  R$ ${nacionalFinal.categoria4 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "SF" && categoria === 1) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalSemiFinal.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalSemiFinal.categoria1}
+    Valor total:  U$ ${internacionalSemiFinal.categoria1 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "SF" && categoria === 2) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalSemiFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalSemiFinal.categoria2}
+    Valor total:  U$ ${internacionalSemiFinal.categoria2 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "SF" && categoria === 3) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalSemiFinal.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalSemiFinal.categoria3}
+    Valor total:  U$ ${internacionalSemiFinal.categoria3 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "SF" && categoria === 4) {
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalSemiFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalSemiFinal.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalSemiFinal.categoria4}
+    Valor total:  U$ ${internacionalSemiFinal.categoria4 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "DT" && categoria === 1){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${internacionalTerceiroLugar.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalTerceiroLugar.categoria1}
+    Valor total:  U$ ${internacionalTerceiroLugar.categoria1 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "DT" && categoria === 2){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${internacionalTerceiroLugar.jogo}
+    Categoria: ${categoria}  
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalTerceiroLugar.categoria2}
+    Valor total:  U$ ${internacionalTerceiroLugar.categoria2 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "DT" && categoria === 3){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${internacionalTerceiroLugar.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalTerceiroLugar.categoria3}
+    Valor total:  U$ ${internacionalTerceiroLugar.categoria3 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "DT" && categoria === 4){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalTerceiroLugar.tipoDeJogo}
+    Etapa do jogo: ${internacionalTerceiroLugar.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalTerceiroLugar.categoria4}
+    Valor total:  U$ ${internacionalTerceiroLugar.categoria4 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "FI" && categoria === 1){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalFinal.categoria1}
+    Valor total:  U$ ${internacionalFinal.categoria1 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "FI" && categoria === 2){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalFinal.categoria2}
+    Valor total:  U$ ${internacionalFinal.categoria2 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "FI" && categoria === 3){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalFinal.categoria3}
+    Valor total:  U$ ${internacionalFinal.categoria3 * quantidadeIngressos}`)
+} else if (tipoJogo === "IN" && etapaJogo === "FI" && categoria === 4){
+    console.log(`
+    ---Dados da compra--- 
+    Nome do cliente: ${nomeCompleto}
+    Tipo do jogo: ${internacionalFinal.tipoDeJogo}
+    Etapa do jogo: ${internacionalFinal.jogo}
+    Categoria: ${categoria} 
+    Quantidade de Ingressos: ${quantidadeIngressos} ingressos 
+    ---Valores--- 
+    Valor do ingresso: U$ ${internacionalFinal.categoria4}
+    Valor total:  U$ ${internacionalFinal.categoria4 * quantidadeIngressos}`)
+} else {
+    console.log("Não há nenhum ingresso nessas condições, por favor, tente novamente!")
+}
+
