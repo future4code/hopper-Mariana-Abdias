@@ -44,6 +44,8 @@
 
 // Exercícios de escrita de código
 
+// Exercício 1.
+
 const quantosAnimais = Number(prompt("Quantos animais de estimação você tem?"));
 const array = [];
 
@@ -61,12 +63,12 @@ if (quantosAnimais === 0) {
 
 const array2 = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55];
 
-// // a.
+// a.
 for (const numero of array2) {
     console.log(numero)
 }
 
-// // b.
+// b.
 for (const numero of array2) {
     console.log(numero/10)
 }
@@ -81,7 +83,7 @@ for (const numero of array2) {
 }
 console.log(novoArray)
 
-// // d.
+// d.
 const novoArray2 = []
 for (let index = 0; index < array2.length; index++) {
     const element = array2[index];
@@ -91,6 +93,7 @@ for (let index = 0; index < array2.length; index++) {
 console.log(novoArray2)
 
 // e.
+
 // maior
 let maior = 0;
 let indexmaior = 0;
@@ -103,7 +106,7 @@ while (indexmaior <= array2.length - 1) {
 
 console.log(`O maior número é ${maior}`);
 
-// menor 
+// menor
 let menor = array2[0];
 let indexmenor = 0;
 while (indexmenor <= array2.length - 1) {
@@ -115,3 +118,43 @@ while (indexmenor <= array2.length - 1) {
 
 console.log(`O menor número é ${menor}`);
 
+// Desafio
+
+// 1.
+const numeroPrimeiroJogador = Number(prompt("Digite um número"));
+console.log(`Vamos jogar!`);
+let tentativas = 1
+let numeroChutado = -1
+while (numeroChutado !== numeroPrimeiroJogador) {
+  numeroChutado = Number(prompt("Qual o número que foi pensado?"));
+  console.log(`O número chutado foi: ${numeroChutado}`);
+  if (numeroPrimeiroJogador > numeroChutado) {
+    console.log("Errou. O número escolhido é maior");
+  } else if (numeroPrimeiroJogador < numeroChutado) {
+    console.log("Errou. O número escolhido é menor");
+  } else {
+    console.log("Acertou!!");
+    console.log(`O número de tentativas foi: ${tentativas}`);
+  }
+  tentativas++
+}
+
+// 2.
+
+const numeroSorteado = Math.floor(Math.random() * 100 + 1);
+console.log(`Vamos jogar!`);
+let tentativasUsuario = 1;
+let numeroChutadoUsuario = -1
+while (numeroChutadoUsuario !== numeroSorteado) {
+  numeroChutadoUsuario = Number(prompt("Qual o número que eu pensei?"));
+  console.log(`O número chutado foi: ${numeroChutadoUsuario}`);
+  if (numeroSorteado > numeroChutadoUsuario) {
+    console.log("Errou. O número escolhido é maior");
+  } else if (numeroSorteado < numeroChutadoUsuario) {
+    console.log("Errou. O número escolhido é menor");
+  } else {
+    console.log("Acertou!!");
+    console.log(`O número de tentativas foi: ${tentativasUsuario}`);
+  }
+  tentativasUsuario++;
+}
