@@ -108,41 +108,83 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
+    const maiorEMenor = []
+    const arrayOrdenado = retornaArrayOrdenado(array)
+    maiorEMenor.push(arrayOrdenado[arrayOrdenado.length - 2])
+    maiorEMenor.push(arrayOrdenado[1])
     
+    return maiorEMenor
   
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+    filme = {
+        nome: "O Diabo Veste Prada",
+        ano: 2006,
+        diretor: "David Frankel",
+        atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+    }
+    const chamada = `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}.`
+
+    return chamada
 }
+
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+    pessoa.nome = "ANÔNIMO"
+        let novaPessoa ={
+        ...pessoa
+    }
+
+    return novaPessoa
+
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+    const pessoasAutorizadas = []
+    for (const autorizado of pessoas) {
+        if (autorizado.altura >= 1.5 && autorizado.idade > 14 && autorizado.idade < 60) {
+            pessoasAutorizadas.push(autorizado)
+        }
+    }
+    return pessoasAutorizadas
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+    const pessoasNaoAutorizadas = []
+    for (const naoAutorizado of pessoas) {
+        if (naoAutorizado.altura < 1.5 || naoAutorizado.idade <= 14 || naoAutorizado.idade >= 60) {
+            pessoasNaoAutorizadas.push(naoAutorizado)
+        }
+    }
+    return pessoasNaoAutorizadas
 }
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
+    contas.map((conta) => {
+        const valorCompras = conta.compras.reduce((acc, curr) => acc + curr, 0)
+        conta.saldoTotal -= valorCompras
+        conta.compras = []
+    })
+    return contas
 }
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+    return consultas.sort((a, b) => a.nome.localeCompare(b.nome))
+
 }
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+    return consultas.sort((a, b) => {
+        a = a.dataDaConsulta.split("/").reverse().join()
+        b = b.dataDaConsulta.split("/").reverse().join()
+        return a.localeCompare(b)
+    })
 }
