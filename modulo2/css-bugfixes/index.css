@@ -138,6 +138,10 @@ td button {
     color: black;
 }
 
+td button:hover {
+    background-color: #9b8731;
+  }
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
@@ -154,6 +158,8 @@ td button {
     color: black;
 }
 
+
 #back-button:hover {
     background-color: #635a3d
 }
+
