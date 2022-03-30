@@ -26,7 +26,7 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width: 50px;
 }
 
 div>p:first-child {
@@ -34,7 +34,7 @@ div>p:first-child {
 }
 
 div img {
-    background: black;
+    background: white;
 }
 
 .botao-amarelo {
@@ -120,8 +120,12 @@ div:last-child {
 
 table {
     width: 60%;
-    align-items: center;
     margin: auto;
+ 
+}
+
+.texto-table {
+    text-align: center;
 }
 
 td button {
