@@ -147,6 +147,10 @@ td button:hover {
     height: 100px;
 }
 
+input {
+    border: none;
+    border-bottom: 1px solid #000;
+}
 
 #back-button {
     background-color: white;
