@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.logo-imagem {
+    width: 10px;
+    border-radius: 25px;
+}
+
+.container-logo{
+    display: flex;
+    align-items: center;
+}
+
+.menu li{
+    display: inline-block;
+    margin: 0 15px;
+
+}
+
+.menu li a{
+    font-size: 30px;
+    text-decoration: none;
+    color: #E9B3A3;
+    text-transform: uppercase;
+    padding: 10px 10px;
+    border-radius: 50px;
+
+}
+
+.menu li a:hover{
+    background-color: rgba(245, 238, 238, 0.8);
+}
+
+main img{
+    width: 100%;
+}
