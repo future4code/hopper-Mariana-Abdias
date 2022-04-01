@@ -46,5 +46,146 @@ header{
 }
 
 main img{
+
     width: 100%;
+    height: 100%;
+    
+}
+
+.main3 img{
+    height: 300px;
+    padding: 30px;
+    
+
+    
+}
+
+.main3 a{
+    font-size: 30px;
+    text-decoration: none;
+    color:#403126;
+    text-transform: uppercase;
+    padding: 20px 20px;
+    border-radius: 50px;
+    margin: 230px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.main3 a:hover{
+    background-color: white;
+}
+
+
+
+.sobre-mim{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr ;
+}
+
+.formacao-experiencia{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1.2fr 1.5fr ;
+    column-gap: 20px;
+}
+
+main {
+    background-color: #E9B3A3;
+}
+
+.main2 {
+    background-color: white;
+}
+
+.main3 {
+    background-color: #E9B3A3;
+}
+
+
+.texto {
+    margin: 80px 100px;
+    
+}
+
+
+
+.texto h1{
+    font-size: 200px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#projeto {
+    font-size: 100px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#formatacao{
+    font-size: 80px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:#E9B3A3;
+}
+
+.texto h3{
+    font-size: 110px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #403126;
+}
+
+#h3-projeto{
+    padding: 40px 0 20px;
+    font-size: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+#p-projeto{
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #403126;
+    text-align: center;
+}
+
+
+.texto h2{
+    padding: 30px 0 0 ;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #403126;
+  
+}
+
+.texto h4{
+    padding: 10px 0;
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #403126;
+   
+}
+
+.texto p{
+    padding: 50px 0;
+    font-size: 35px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#p2{
+    padding: 10px 0;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(27, 25, 25)
+
+}   
+
+footer{
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    
+    
 }
