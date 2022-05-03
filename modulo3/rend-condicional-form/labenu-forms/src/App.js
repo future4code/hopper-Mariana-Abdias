@@ -13,12 +13,17 @@ const MainContainer = styled.div`
 class App extends React.Component {
   render() {
     return (
-      <MainContainer>
-        <Etapa1 />
-        <Etapa2 />
-        <Etapa3 />
-        <Final />
-      </MainContainer>
+      <>
+        <div>
+          <button>Próxima Etapa</button>
+        </div>
+        <MainContainer>
+          <Etapa1 />
+          <Etapa2 />
+          <Etapa3 />
+          <Final />
+        </MainContainer>
+      </>
     )
   }
 }
