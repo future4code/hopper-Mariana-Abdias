@@ -14,12 +14,18 @@ const ContainerEtapa3 = styled.div`
     align-items: center;
     padding-left: 2em;
     padding-right: 2em;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 0;
   }
 
   input {
     width: 100%;
+    height: 2em;
+    border-radius: 10px;
+  }
+
+  select {
+    width: 20em;
     height: 2em;
     border-radius: 10px;
   }
@@ -36,7 +42,13 @@ class Etapa3 extends React.Component {
           <p>5. Porque você não terminou o curso de graduação?</p>
           <input></input>
           <p>6. Você fez algum curso complementar?</p>
-          <input></input>
+          <select>
+            <option value="Curso técnico">Curso técnico</option>
+            <option value="Cursos de inglês">Cursos de inglês</option>
+            <option value="Não fiz curso complementar">
+              Não fiz curso complementar
+            </option>
+          </select>
         </ol>
       </ContainerEtapa3>
     )

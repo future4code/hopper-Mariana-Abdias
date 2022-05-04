@@ -14,7 +14,7 @@ const ContainerEtapa2 = styled.div`
     align-items: center;
     padding-left: 2em;
     padding-right: 2em;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 0;
   }
 
