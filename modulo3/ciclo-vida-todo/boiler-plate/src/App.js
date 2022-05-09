@@ -20,25 +20,26 @@ const InputsContainer = styled.div`
 
 class App extends React.Component {
   state = {
-    tarefas: [
-      {
-        id: Date.now(),
-        texto: 'Trabalhar',
-        completa: false
-      },
-      {
-        id: Date.now(),
-        texto: 'Estudar',
-        completa: true
-      }
-    ],
+    tarefas: [],
     inputValue: '',
     filtro: 'pendentes'
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.tarefas !== this.state.tarefas) {
+      localStorage.setItem('tarefas', JSON.stringify(this.state.tarefas))
+    }
+  }
 
-  componentDidMount() {}
+  componentDidMount() {
+    if (localStorage.getItem('tarefas') !== null) {
+      const stringTarefa = localStorage.getItem('tarefas')
+      const objetoTarefa = [...this.state.tarefas].concat(
+        JSON.parse(stringTarefa)
+      )
+      this.setState({ tarefas: objetoTarefa })
+    }
+  }
 
   onChangeInput = event => {
     this.setState({ inputValue: event.target.value })
@@ -46,7 +47,9 @@ class App extends React.Component {
 
   criaTarefa = () => {
     const tarefaARealizar = {
-      texto: this.state.inputValue
+      id: Date.now(),
+      texto: this.state.inputValue,
+      completa: false
     }
 
     const novasTarefas = [...this.state.tarefas, tarefaARealizar]
@@ -58,12 +61,23 @@ class App extends React.Component {
   }
 
   selectTarefa = id => {
-    // listaDeTarefas = this.state.tarefas.map(tarefa => {
-    //   return <>{tarefa.id}</>
-    // })
+    const selecionaTarefas = this.state.tarefas.map(tarefa => {
+      if (id === tarefa.id) {
+        const selecionaTarefa = {
+          ...tarefa,
+          completa: !tarefa.completa
+        }
+        return selecionaTarefa
+      } else {
+        return tarefa
+      }
+    })
+    this.setState({ tarefas: selecionaTarefas })
   }
 
-  onChangeFilter = event => {}
+  onChangeFilter = event => {
+    this.setState({ filtro: event.target.value })
+  }
 
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
