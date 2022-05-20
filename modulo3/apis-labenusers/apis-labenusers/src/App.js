@@ -1,7 +1,8 @@
 import React from 'react'
 import CadastraUsuario from './CadastraUsuario'
 import ListaUsuarios from './ListaUsuarios'
-import './App.css';
+import styled from 'styled-components'
+import './App.css'
 
 class App extends React.Component {
   state = {
@@ -19,7 +20,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.trocarDeTela}>Trocar de tela</button>
+        <button className="troca-tela" onClick={this.trocarDeTela}>
+          Trocar de tela
+        </button>
         {this.state.telaExibir === 'Cadastro' ? (
           <CadastraUsuario />
         ) : (

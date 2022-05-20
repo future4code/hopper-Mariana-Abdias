@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import ListaUsuarios from './ListaUsuarios'
+import styled from 'styled-components'
 import './App.css'
 
 class CadastraUsuario extends React.Component {
@@ -49,7 +50,7 @@ class CadastraUsuario extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="cadastro">
         <input
           placeholder="Nome"
           type="text"

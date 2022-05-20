@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 import './App.css'
 
 class ListaUsuarios extends React.Component {
@@ -45,23 +46,23 @@ class ListaUsuarios extends React.Component {
         alert('Usuário apagado com sucesso!')
       })
       .catch(error => {
-        alert('ERRO AO APAGAR USUARIO')
+        alert('Ops, não foi possível apagar esse usuário!')
       })
   }
 
-
   render() {
     return (
-      <div>
+      <div className="lista">
         <div>
           <ul>
             {this.state.cadastros.map((nomes, index) => {
               return (
                 <li key={index}>
                   {nomes.name} {nomes.email}
-                  <button onClick={() => this.deletaUsuario(nomes.id)}>
-                    X
-                  </button>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/126/126468.png"
+                    onClick={() => this.deletaUsuario(nomes.id)}
+                  />
                 </li>
               )
             })}
