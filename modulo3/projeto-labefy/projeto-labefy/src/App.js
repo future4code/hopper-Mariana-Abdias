@@ -2,12 +2,15 @@ import React from 'react'
 import axios from 'axios'
 // import styled from 'styled-components'
 import './App.css'
+
+// Imagens importadas
 import logo from './imagens/logo-principal.png'
 import apagar from './imagens/apagar.png'
 import criar from './imagens/criar.png'
 import tocar from './imagens/tocar.png'
 
 class App extends React.Component {
+  // Estados criados.
   state = {
     playlist: [],
     inputPlaylist: '',
@@ -16,14 +19,16 @@ class App extends React.Component {
     inputArtistas: '',
     inputUrl: '',
     idPlaylist: '',
-    tocarAgora: false,
-    tocarMusica: {}
+    tocar: false,
+    playNaMusica: {}
   }
 
+  // Atualizando o ciclo de vida do componente para ele renderizar no site automático, sem precisar clicar em atualizar.
   componentDidMount() {
     this.renderizarPlaylist()
   }
 
+  // Esta requisição serve para ver o id e o name de todas as suas playlists. (getAllPlaylists)
   renderizarPlaylist = () => {
     axios
       .get(
@@ -42,6 +47,7 @@ class App extends React.Component {
       })
   }
 
+  // Essa requisição cria uma nova playlist. (createPlaylist)
   criarPlaylist = () => {
     const body = {
       name: this.state.inputPlaylist
@@ -66,10 +72,20 @@ class App extends React.Component {
       })
   }
 
+  // Essa função foi criada para dar o onChange no input para criar as Playlists.
   onChangePlaylist = event => {
     this.setState({ inputPlaylist: event.target.value })
   }
 
+  // Essa função cria a ID da Playlist.
+  criaIdPlaylist = id => {
+    this.setState({
+      criarMusicas: !this.state.criarMusicas,
+      idPlaylist: id
+    })
+  }
+
+  // Essa requisição adiciona uma música a uma playlist existente (addTrackToPlaylist).
   criarMusicas = () => {
     const body = {
       name: this.state.inputMusicas,
@@ -98,13 +114,7 @@ class App extends React.Component {
       })
   }
 
-  buscaIdPlaylist = id => {
-    this.setState({
-      criarMusicas: !this.state.criarMusicas,
-      idPlaylist: id
-    })
-  }
-
+  // Esta requisição permite verificar quais músicas estão em uma determinada playlist (getPlaylistTracks).
   selecionaPlaylist = id => {
     axios
       .get(
@@ -116,25 +126,29 @@ class App extends React.Component {
         }
       )
       .then(response => {
-        this.setState({ musicas: response.data.result.list, idPlaylist: id })
+        this.setState({ musicas: response.data.result.tracks, idPlaylist: id })
       })
       .catch(err => {
         alert(err.response.data)
       })
   }
 
+  // Essa função foi criada para dar o onChange no input para criar as músicas.
   onChangeMusicas = event => {
     this.setState({ inputMusicas: event.target.value })
   }
 
+  // Essa função foi criada para dar o onChange no input para criar os artistas.
   onChangeArtistas = event => {
     this.setState({ inputArtistas: event.target.value })
   }
 
+  // Essa função foi criada para dar o onChange no input para criar as URL das músicas.
   onChangeUrl = event => {
     this.setState({ inputUrl: event.target.value })
   }
 
+  // Esta requisição serve para deletar alguma playlist (deletePlaylist).
   deletaPlaylist = id => {
     axios
       .delete(
@@ -155,17 +169,19 @@ class App extends React.Component {
       })
   }
 
-  tocarMusicas = music => {
+  // Função para tocar música
+  tocarMusicas = musica => {
     this.setState({
-      tocarAgora: music,
-      tocarMusica: !this.state.tocarMusica
+      playNaMusica: musica,
+      tocar: !this.state.tocar
     })
   }
 
-  deletaMusicas = (idPlay, idMusic) => {
+  // Esta requisição serve para deletar alguma música de alguma playlist (removeTrackFromPlaylist).
+  deletaMusicas = id => {
     axios
       .delete(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${idPlay}/tracks/${idMusic}`,
+        `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks/${id}`,
         {
           headers: {
             Authorization: 'mariana-goncalves-hopper'
@@ -199,49 +215,63 @@ class App extends React.Component {
               <p className="p-gradiente">Crie sua Playlist</p>
               <div>
                 <input
+                  className="inputPlaylist"
                   placeholder="Insira o nome da playlist"
                   value={this.state.inputPlaylist}
                   onChange={this.onChangePlaylist}
                   type="text"
                 />
-                <button onClick={this.criarPlaylist}>Criar Playlist</button>
+                <button className="buttonPlaylist" onClick={this.criarPlaylist}>
+                  Criar Playlist
+                </button>
               </div>
             </div>
-            {this.state.criarMusicas && (
-              <div className="criar-playlist">
-                <p className="p-gradiente">Adicione suas músicas</p>
-                <div>
-                  <input
-                    placeholder="Insira o nome da Música"
-                    value={this.state.inputMusicas}
-                    onChange={this.onChangeMusicas}
-                    type="text"
-                  />
-                  <input
-                    placeholder="Insira o nome do Artista"
-                    value={this.state.inputArtistas}
-                    onChange={this.onChangeArtistas}
-                    type="text"
-                  />
-                  <input
-                    placeholder="Insira a url da Música"
-                    value={this.state.inputUrl}
-                    onChange={this.onChangeUrl}
-                    type="url"
-                  />
-                </div>
-                <button onClick={this.criarMusicas}>Adicionar Músicas</button>
+            {/* {this.state.criarMusicas && ( */}
+            <div className="criar-musicas">
+              <p className="p-gradiente">Adicione suas músicas</p>
+              <div>
+                <input
+                  className="inputsMusicas"
+                  placeholder="Insira o nome da Música"
+                  value={this.state.inputMusicas}
+                  onChange={this.onChangeMusicas}
+                  type="text"
+                />
+                <input
+                  className="inputsMusicas"
+                  placeholder="Insira o nome do Artista"
+                  value={this.state.inputArtistas}
+                  onChange={this.onChangeArtistas}
+                  type="text"
+                />
+                <input
+                  className="inputsMusicas"
+                  placeholder="Insira a url da Música"
+                  value={this.state.inputUrl}
+                  onChange={this.onChangeUrl}
+                  type="url"
+                />
               </div>
-            )}
-            {this.state.tocarMusica && (
+              <button
+                className="buttonAdicionarMusicas"
+                onClick={this.criarMusicas}
+              >
+                Adicionar Músicas
+              </button>
+            </div>
+            {/* )} */}
+            {this.state.tocar && (
               <div className="tocar-musica">
                 <div>
                   <p className="p-gradiente">Tocando Música</p>
-                  <p>{this.state.tocarAgora.name}</p>
+                  <div className="tocando">
+                    <h4>{this.state.playNaMusica.name}</h4>
+                    <h4>{this.state.playNaMusica.artist}</h4>
+                  </div>
                 </div>
                 <div>
-                  <audio autoplay="autoplay" controls="controls">
-                    <source src={this.state.tocarAgora.url}></source>
+                  <audio controls autoPlay>
+                    <source src={this.state.playNaMusica.url}></source>
                   </audio>
                 </div>
               </div>
@@ -252,20 +282,22 @@ class App extends React.Component {
             <div>
               {this.state.playlist.map(play => {
                 return (
-                  <div key={play.id}>
-                    <p onClick={() => this.selecionaPlaylist(play.id)}>
+                  <div className="playlist-nomes" key={play.id}>
+                    <h3 onClick={() => this.selecionaPlaylist(play.id)}>
                       {play.name}
-                    </p>
-                    <img
-                      src={criar}
-                      width="20vh"
-                      onClick={() => this.buscaIdPlaylist(play.id)}
-                    />
-                    <img
-                      src={apagar}
-                      width="20vh"
-                      onClick={() => this.deletaPlaylist(play.id)}
-                    />
+                    </h3>
+                    <div>
+                      <img
+                        src={criar}
+                        width="25vh"
+                        onClick={() => this.criaIdPlaylist(play.id)}
+                      />
+                      <img
+                        src={apagar}
+                        width="25vh"
+                        onClick={() => this.deletaPlaylist(play.id)}
+                      />
+                    </div>
                   </div>
                 )
               })}
@@ -276,20 +308,24 @@ class App extends React.Component {
             <div>
               {this.state.musicas.map(musica => {
                 return (
-                  <div key={musica.id}>
-                    <p>
-                      {musica.name} - {musica.artist}
-                    </p>
-                    <img
-                      src={tocar}
-                      width="20vh"
-                      onClick={() => this.tocarMusicas(musica)}
-                    />
-                    <img
-                      src={apagar}
-                      width="20vh"
-                      onClick={() => this.deletaMusicas(musica.id)}
-                    />
+                  <div className="playlist-musicas" key={musica.id}>
+                    <div>
+                      <h4>
+                        {musica.name} - {musica.artist}
+                      </h4>
+                    </div>
+                    <div>
+                      <img
+                        src={tocar}
+                        width="25vh"
+                        onClick={() => this.tocarMusicas(musica)}
+                      />
+                      <img
+                        src={apagar}
+                        width="25vh"
+                        onClick={() => this.deletaMusicas(musica.id)}
+                      />
+                    </div>
                   </div>
                 )
               })}
