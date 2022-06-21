@@ -1,9 +1,11 @@
 import React from 'react'
 import { countries } from '../hooks/countries'
+import { useNavigate } from 'react-router-dom'
 
 // Página para o usuário se candidatar à viagens, página que vai ter o formulário de inscrição
 
 function AplicationForm() {
+  const navigate = useNavigate()
   return (
     <div className="AplicationForm">
       <h1>Inscreva-se para uma viagem</h1>
@@ -68,7 +70,7 @@ function AplicationForm() {
           })}
         </select>
         <div>
-          <button>Voltar</button>
+          <button onClick={() => navigate('/trips/list')}>Voltar</button>
           <button type={'submit'}>Enviar</button>
         </div>
       </form>

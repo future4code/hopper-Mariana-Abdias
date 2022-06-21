@@ -9,8 +9,6 @@ const ListTrips = () => {
   const navigate = useNavigate()
   const [trips, setTrips] = useState([])
 
- 
-
   const useGetTrips = async () => {
     const response = await getTrips()
     setTrips(response)
@@ -19,8 +17,8 @@ const ListTrips = () => {
   return (
     <div className="ListTrips">
       <div>
-        <button click={() => navigate('/')}>Voltar</button>
-        <button click={() => navigate('/trips/application')}>
+        <button onClick={() => navigate('/')}>Voltar</button>
+        <button onClick={() => navigate('/trips/application')}>
           Inscrever-se
         </button>
       </div>

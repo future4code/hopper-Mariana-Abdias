@@ -1,9 +1,11 @@
 import React from 'react'
 import { planets } from '../hooks/planets'
+import { useNavigate } from 'react-router-dom'
 
 // Página Formulário para o administrador criar uma nova viagem
 
 function CreateTrip() {
+  const navigate = useNavigate()
   return (
     <div className="CreateTrip">
       <h1>Criar Viagem</h1>
@@ -63,7 +65,7 @@ function CreateTrip() {
           min={50}
         />
         <div>
-          <button>Voltar</button>
+          <button onClick={() => navigate('/admin/trips/list')}>Voltar</button>
           <button type={'submit'}>Criar</button>
         </div>
       </form>

@@ -10,8 +10,8 @@ const Home = () => {
     <>
       <h1>LABEX</h1>
       <div>
-        <button click={() => navigate('/trips/list')}>Ver Viagens</button>
-        <button click={() => navigate('/admin/trips/list')}>
+        <button onClick={() => navigate('/trips/list')}>Ver Viagens</button>
+        <button onClick={() => navigate('/admin/trips/list')}>
           Administrador
         </button>
       </div>
