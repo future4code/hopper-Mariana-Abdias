@@ -8,16 +8,19 @@ const AdminHome = () => {
   // useProtectedPage()
   const navigate = useNavigate()
   return (
-    <>
-      <h1>Painel Administrativo</h1>
-      <div>
-        <button onClick={() => navigate('/')}>Voltar</button>
-        <button onClick={() => navigate('/admin/trips/create')}>
+    <div className="styled-pages">
+      <p className="p-text-principal">
+        LABE<span>X</span>
+      </p>
+      <h1 className="h1-text">Painel Administrativo</h1>
+      <div className="div-buttons">
+        <button className="buttons" onClick={() => navigate('/')}>Voltar</button>
+        <button className="buttons" onClick={() => navigate('/admin/trips/create')}>
           Criar Viagem
         </button>
-        <button onClick={() => navigate('/login')}>Logout</button>
+        <button className="buttons" onClick={() => navigate('/login')}>Logout</button>
       </div>
-    </>
+    </div>
   )
 }
 

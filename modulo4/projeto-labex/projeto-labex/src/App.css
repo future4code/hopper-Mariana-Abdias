@@ -1,38 +1,170 @@
+/* ===== Import fontes - Google Fonts ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+/* == GERAL ================================ */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Times New Roman', Times, serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.div-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 5rem;
+}
+
+.buttons {
+  padding: 15px 25px;
+  color: white;
+  background-color: #b2366c;
+  border: none;
+  border-radius: 50px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  transition: 0.1s ease;
+  transition-property: background-color, color;
+}
+
+.buttons:hover {
+  color: #b2366b;
+  font-weight: 500;
+  background-color: white;
+}
+
+.styled-pages {
+  background-image: url(./images/allWallpaper.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+}
+
+.styled-pages .p-text-principal {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  font-size: 5rem;
+  letter-spacing: 0.6rem;
+  font-family: 'Abel', sans-serif;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.styled-pages .p-text-principal span {
+  color: #b2366b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.styled-pages .h1-text {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.form-styled {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 0.5rem;
+  max-width: 40rem;
+}
+
+.form-styled input {
+  border: none;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.74);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.form-styled select {
+  border: none;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.74);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+/* == Page Home ============================ */
+
+.home-styled {
+  background-image: url(./images/wallpaper.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+}
+
+.home-styled .p-text-principal {
+  font-size: 20rem;
+  letter-spacing: 1.5rem;
+  font-family: 'Abel', sans-serif;
+  color: white;
+}
+
+.home-styled .p-text-principal span {
+  color: #b2366b;
+}
+
+.home-styled .buttons-home {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.home-styled .button-principal {
+  padding: 20px 30px;
+  color: white;
+  background-color: #b2366c8c;
+  border: none;
+  border-radius: 50px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-top: 20px;
+  transition: 0.1s ease;
+  transition-property: background-color, color;
+}
+
+.home-styled .button-principal:hover {
+  color: #b2366b;
+  font-weight: 500;
+  background-color: white;
+}
+
+/* == Page Login ========================== */
+
+.form-styled-login {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 2rem;
+  max-width: 50rem;
+}
+
+.form-styled-login input {
+  border: none;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.74);
+  border-radius: 10px;
+  font-size: 30px;
 }

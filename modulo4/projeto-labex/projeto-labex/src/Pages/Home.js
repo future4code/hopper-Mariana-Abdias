@@ -7,15 +7,25 @@ const Home = () => {
   const navigate = useNavigate()
 
   return (
-    <>
-      <h1>LABEX</h1>
-      <div>
-        <button onClick={() => navigate('/trips/list')}>Ver Viagens</button>
-        <button onClick={() => navigate('/admin/trips/list')}>
+    <div className="home-styled">
+      <p className="p-text-principal">
+        LABE<span>X</span>
+      </p>
+      <div className="buttons-home">
+        <button
+          className="button-principal"
+          onClick={() => navigate('/trips/list')}
+        >
+          Ver Viagens
+        </button>
+        <button
+          className="button-principal"
+          onClick={() => navigate('/admin/trips/list')}
+        >
           Administrador
         </button>
       </div>
-    </>
+    </div>
   )
 }
 

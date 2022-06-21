@@ -7,9 +7,12 @@ import { useNavigate } from 'react-router-dom'
 function AplicationForm() {
   const navigate = useNavigate()
   return (
-    <div className="AplicationForm">
-      <h1>Inscreva-se para uma viagem</h1>
-      <form>
+    <div className="styled-pages">
+      <p className="p-text-principal">
+        LABE<span>X</span>
+      </p>
+      <h1 className="h1-text">Inscreva-se para uma viagem</h1>
+      <form className="form-styled">
         <select defaultValue="" onChange="">
           <option value="" disabled>
             Escolha uma Viagem
@@ -69,11 +72,15 @@ function AplicationForm() {
             )
           })}
         </select>
-        <div>
-          <button onClick={() => navigate('/trips/list')}>Voltar</button>
-          <button type={'submit'}>Enviar</button>
-        </div>
       </form>
+      <div className="div-buttons">
+        <button className="buttons" onClick={() => navigate('/trips/list')}>
+          Voltar
+        </button>
+        <button className="buttons" type={'submit'}>
+          Enviar
+        </button>
+      </div>
     </div>
   )
 }

@@ -35,9 +35,12 @@ function Login() {
   }
 
   return (
-    <div className="Login">
-      <h1>Login</h1>
-      <form>
+    <div className="styled-pages">
+      <p className="p-text-principal">
+        LABE<span>X</span>
+      </p>
+      <h1 className="h1-text">Login</h1>
+      <form className="form-styled-login">
         <input
           placeholder={'E-mail'}
           type={'email'}
@@ -54,13 +57,13 @@ function Login() {
           onChange={onChangePassword}
           required
         />
-        <buttons>
-          <button onClick={() => navigate('/admin/trips/list')}>Voltar</button>
-          <button type={'submit'} onClick={onSubmitLogin}>
-            Entrar
-          </button>
-        </buttons>
       </form>
+      <div className="div-buttons">
+        <button className="buttons" onClick={() => navigate('/admin/trips/list')}>Voltar</button>
+        <button className="buttons" type={'submit'} onClick={onSubmitLogin}>
+          Entrar
+        </button>
+      </div>
     </div>
   )
 }

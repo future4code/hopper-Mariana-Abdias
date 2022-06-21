@@ -7,9 +7,12 @@ import { useNavigate } from 'react-router-dom'
 function CreateTrip() {
   const navigate = useNavigate()
   return (
-    <div className="CreateTrip">
-      <h1>Criar Viagem</h1>
-      <form>
+    <div className="styled-pages">
+      <p className="p-text-principal">
+        LABE<span>X</span>
+      </p>
+      <h1 className="h1-text">Criar Viagem</h1>
+      <form className="form-styled">
         <input
           placeholder={'Nome'}
           name={'name'}
@@ -64,11 +67,18 @@ function CreateTrip() {
           required
           min={50}
         />
-        <div>
-          <button onClick={() => navigate('/admin/trips/list')}>Voltar</button>
-          <button type={'submit'}>Criar</button>
-        </div>
       </form>
+      <div className="div-buttons">
+        <button
+          className="buttons"
+          onClick={() => navigate('/admin/trips/list')}
+        >
+          Voltar
+        </button>
+        <button className="buttons" type={'submit'}>
+          Criar
+        </button>
+      </div>
     </div>
   )
 }

@@ -15,14 +15,17 @@ const ListTrips = () => {
   }
 
   return (
-    <div className="ListTrips">
-      <div>
-        <button onClick={() => navigate('/')}>Voltar</button>
-        <button onClick={() => navigate('/trips/application')}>
+    <div className="styled-pages">
+      <p className="p-text-principal">
+        LABE<span>X</span>
+      </p>
+      <div className="div-buttons">
+        <button className="buttons" onClick={() => navigate('/')}>Voltar</button>
+        <button className="buttons" onClick={() => navigate('/trips/application')}>
           Inscrever-se
         </button>
       </div>
-      <h1>Lista de Viagens</h1>
+      <h1 className="h1-text">Lista de Viagens</h1>
       {trips &&
         trips.map(trip => (
           <ul key={trip.id}>
