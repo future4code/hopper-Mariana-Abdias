@@ -18,10 +18,7 @@ const Home = () => {
         >
           Ver Viagens
         </button>
-        <button
-          className="button-principal"
-          onClick={() => navigate('/admin/trips/list')}
-        >
+        <button className="button-principal" onClick={() => navigate('/login')}>
           Administrador
         </button>
       </div>
