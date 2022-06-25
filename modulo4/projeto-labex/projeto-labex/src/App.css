@@ -78,6 +78,15 @@
   color: white;
 }
 
+.styled-pages .h2-text {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
 .form-styled {
   display: flex;
   flex-direction: column;
@@ -167,4 +176,46 @@
   background-color: rgba(255, 255, 255, 0.74);
   border-radius: 10px;
   font-size: 30px;
+}
+
+/* == Page List Trips ==================== */
+
+.lista-de-viagens {
+  background-color: rgba(255, 255, 255, 0.74);
+  margin-left: 20rem;
+  margin-right: 20rem;
+  margin-bottom: 2rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+/* == Page Admin Home ==================== */
+
+.admin-lista-viagem {
+  background-color: #efefef;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  margin-bottom: 1.5rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.admin-lista-viagem img {
+  width: 4vh;
+}
+
+.admin-lista-viagem button {
+  border: none;
 }

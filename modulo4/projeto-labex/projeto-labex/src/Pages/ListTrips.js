@@ -1,18 +1,15 @@
 import React from 'react'
-import { getTrips } from '../services/RequestsApi'
-import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useGetTrips } from '../services/RequestsApi'
+import { useNavigate} from 'react-router-dom'
+
+
 
 // Página para vermos todas as viagens
 
 const ListTrips = () => {
   const navigate = useNavigate()
-  const [trips, setTrips] = useState([])
 
-  const useGetTrips = async () => {
-    const response = await getTrips()
-    setTrips(response)
-  }
+  const trips = useGetTrips()
 
   return (
     <div className="styled-pages">
@@ -20,37 +17,47 @@ const ListTrips = () => {
         LABE<span>X</span>
       </p>
       <div className="div-buttons">
-        <button className="buttons" onClick={() => navigate('/')}>Voltar</button>
-        <button className="buttons" onClick={() => navigate('/trips/application')}>
+        <button className="buttons" onClick={() => navigate('/')}>
+          Voltar
+        </button>
+        <button
+          className="buttons"
+          onClick={() => navigate('/trips/application')}
+        >
           Inscrever-se
         </button>
       </div>
       <h1 className="h1-text">Lista de Viagens</h1>
-      {trips &&
-        trips.map(trip => (
-          <ul key={trip.id}>
-            <li>
-              <strong>Nome:</strong>
-              {trip.name}
-            </li>
-            <li>
-              <strong>Descrição:</strong>
-              {trip.description}
-            </li>
-            <li>
-              <strong>Planeta:</strong>
-              {trip.planet}
-            </li>
-            <li>
-              <strong>Duração:</strong>
-              {trip.durationInDays}
-            </li>
-            <li>
-              <strong>Data:</strong>
-              {trip.date}
-            </li>
-          </ul>
-        ))}
+      {trips.length ? (
+        trips.map(trip => {
+          return (
+            <div className="lista-de-viagens" key={trip.id}>
+              <p>
+                {' '}
+                <strong>Nome:</strong> {trip.name}
+              </p>
+              <p>
+                {' '}
+                <strong>Descrição:</strong> {trip.description}
+              </p>
+              <p>
+                {' '}
+                <strong>Planeta:</strong> {trip.planet}
+              </p>
+              <p>
+                {' '}
+                <strong>Duração:</strong> {trip.durationInDays}
+              </p>
+              <p>
+                {' '}
+                <strong>Data:</strong> {trip.date}
+              </p>
+            </div>
+          )
+        })
+      ) : (
+        <h4>Carregando....</h4>
+      )}
     </div>
   )
 }

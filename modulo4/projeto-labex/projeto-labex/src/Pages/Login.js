@@ -1,37 +1,38 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { baseUrl } from '../services/url'
+import useForms from '../hooks/useForms'
 import axios from 'axios'
+import useUnProtectedPage from '../hooks/useUnProtectedPage'
 
 // Página para fazermos login como administrador
 function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  useUnProtectedPage()
+  const { form, onChange, cleanFields } = useForms({
+    email: '',
+    password: ''
+  })
+
   const navigate = useNavigate()
 
-  const onChangeEmail = event => {
-    setEmail(event.target.value)
-  }
-
-  const onChangePassword = event => {
-    setPassword(event.target.value)
-  }
-
-  const onSubmitLogin = () => {
+  const onSubmitLogin = event => {
+    event.preventDefault()
     const body = {
-      email: email,
-      password: password
+      email: form.email,
+      password: form.password
     }
 
     axios
-      .post(baseUrl, body)
+      .post(`${baseUrl}/login`, body)
       .then(response => {
         localStorage.setItem('token', response.data.token)
-        navigate('/tripDetails')
+        navigate('/admin/trips/list')
+        console.log(response.data)
       })
       .catch(error => {
         console.log(error.response.data)
       })
+    cleanFields()
   }
 
   return (
@@ -40,30 +41,36 @@ function Login() {
         LABE<span>X</span>
       </p>
       <h1 className="h1-text">Login</h1>
-      <form className="form-styled-login">
+      <form className="form-styled-login" onSubmit={onSubmitLogin}>
         <input
           placeholder={'E-mail'}
           type={'email'}
           name={'email'}
-          value={email}
-          onChange={onChangeEmail}
+          value={form.email}
+          onChange={onChange}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           required
         />
         <input
           placeholder={'Senha'}
           type={'password'}
           name={'password'}
-          value={password}
-          onChange={onChangePassword}
+          value={form.password}
+          onChange={onChange}
+          pattern=".{3,}"
+          title="Deve conter no mínimo 3 letras"
           required
         />
+
+        <div className="div-buttons">
+          <button className="buttons" onClick={() => navigate('/')}>
+            Voltar
+          </button>
+          <button className="buttons" type={'submit'}>
+            Entrar
+          </button>
+        </div>
       </form>
-      <div className="div-buttons">
-        <button className="buttons" onClick={() => navigate('/admin/trips/list')}>Voltar</button>
-        <button className="buttons" type={'submit'} onClick={onSubmitLogin}>
-          Entrar
-        </button>
-      </div>
     </div>
   )
 }

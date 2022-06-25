@@ -1,28 +1,55 @@
 import React from 'react'
+import { useGetTrips, applyToTrip } from '../services/RequestsApi'
 import { countries } from '../hooks/countries'
 import { useNavigate } from 'react-router-dom'
+import useForms from '../hooks/useForms'
 
 // Página para o usuário se candidatar à viagens, página que vai ter o formulário de inscrição
 
 function AplicationForm() {
+  const { form, onChange, cleanFields } = useForms({
+    applicationText: '',
+    profession: '',
+    country: '',
+    age: '',
+    name: '',
+    id: ''
+  })
+
   const navigate = useNavigate()
+  const trips = useGetTrips()
+
+  const sendForm = event => {
+    event.preventDefault()
+    applyToTrip(form)
+    cleanFields()
+  }
+
   return (
     <div className="styled-pages">
       <p className="p-text-principal">
         LABE<span>X</span>
       </p>
       <h1 className="h1-text">Inscreva-se para uma viagem</h1>
-      <form className="form-styled">
-        <select defaultValue="" onChange="">
+      <form className="form-styled" onSubmit={sendForm}>
+        <select defaultValue="" onChange={onChange} name={'trip'}>
           <option value="" disabled>
             Escolha uma Viagem
           </option>
+
+          {trips.map(trip => {
+            return (
+              <option value={trip.id} key={trip.id}>
+                {trip.name}
+              </option>
+            )
+          })}
         </select>
         <input
           placeholder={'Nome'}
           name={'name'}
-          value=""
-          onChange=""
+          value={form.name}
+          onChange={onChange}
           pattern={'^.{3,}$'}
           title={'O nome deve ter no mínimo 3 caracteres'}
           required
@@ -31,16 +58,16 @@ function AplicationForm() {
           placeholder={'Idade'}
           type={'number'}
           name={'age'}
-          value=""
-          onChange=""
+          value={form.age}
+          onChange={onChange}
           required
           min={18}
         />
         <input
           placeholder={'Texto de Candidatura'}
           name={'applicationText'}
-          value=""
-          onChange=""
+          value={form.applicationText}
+          onChange={onChange}
           required
           pattern={'^.{30,}$'}
           title={'O texto deve ter no mínimo 30 caracteres'}
@@ -48,8 +75,8 @@ function AplicationForm() {
         <input
           placeholder={'Profissão'}
           name={'profession'}
-          value=""
-          onChange=""
+          value={form.profession}
+          onChange={onChange}
           required
           pattern={'^.{10,}$'}
           title={'A profissão deve ter no mínimo 10 caracteres'}
@@ -57,11 +84,11 @@ function AplicationForm() {
         <select
           placeholder={'País'}
           name={'country'}
-          value=""
-          onChange=""
+          value={form.country}
+          onChange={onChange}
           required
         >
-          <option value={''} disabled>
+          <option value="" disabled>
             Escolha um País
           </option>
           {countries.map(country => {
@@ -72,15 +99,16 @@ function AplicationForm() {
             )
           })}
         </select>
+
+        <div className="div-buttons">
+          <button className="buttons" onClick={() => navigate('/trips/list')}>
+            Voltar
+          </button>
+          <button className="buttons" type={'submit'}>
+            Enviar
+          </button>
+        </div>
       </form>
-      <div className="div-buttons">
-        <button className="buttons" onClick={() => navigate('/trips/list')}>
-          Voltar
-        </button>
-        <button className="buttons" type={'submit'}>
-          Enviar
-        </button>
-      </div>
     </div>
   )
 }
