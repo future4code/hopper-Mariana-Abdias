@@ -32,7 +32,10 @@ function TripDetais(props) {
         LABE<span>X</span>
       </p>
       <div className="div-buttons">
-        <button className="buttons" onClick={() => navigate('/')}>
+        <button
+          className="buttons"
+          onClick={() => navigate('/admin/trips/list')}
+        >
           Voltar
         </button>
       </div>
