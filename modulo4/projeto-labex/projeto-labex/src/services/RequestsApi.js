@@ -62,21 +62,6 @@ export const createTrip = (body, clear) => {
     .catch(err => console.log(err))
 }
 
-// Este endpoint serve para decidir a aprovação ou não de um candidato para uma viagem.
-export const decideCandidate = (tripId, candidateId, decision, getTripDetails) => {
-  const body = {
-      approve: decision
-  }
-
-  axios.put(`${baseUrl}/trips/${tripId}/candidates/${candidateId}/decide`, body, {
-      headers: {auth: localStorage.getItem("token")}
-  })
-  .then(() => {
-      alert("Decisão registrada com sucesso!")
-      getTripDetails()
-  })
-  .catch((err) => alert(err.response.data.message))
-}
 
 // Endpoint que deleta uma viagem
 export const deleteTrip = id => {

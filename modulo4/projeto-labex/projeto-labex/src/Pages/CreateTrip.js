@@ -1,7 +1,7 @@
 import React from 'react'
 import { createTrip } from '../services/RequestsApi'
 import useForms from '../hooks/useForms'
-import { planets } from '../hooks/planets'
+import { planets } from '../Components/planets'
 import { useNavigate } from 'react-router-dom'
 import useProtectedPage from '../hooks/useProtectedPage'
 

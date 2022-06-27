@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGetTrips, applyToTrip } from '../services/RequestsApi'
-import { countries } from '../hooks/countries'
+import { countries } from '../Components/countries'
 import { useNavigate } from 'react-router-dom'
 import useForms from '../hooks/useForms'
 
