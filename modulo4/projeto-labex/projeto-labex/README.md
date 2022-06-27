@@ -31,7 +31,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React](https://reactjs.org)
 
 ### 🚀 Link Surge 
-[Link](https://quirky-distance.surge.sh//)
+- [Link](https://quirky-distance.surge.sh//)
 
 ### 🔐 Para Login:
 - E-mail: mari.abdias@gmail.com
