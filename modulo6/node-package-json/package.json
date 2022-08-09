@@ -1,0 +1,18 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./index.js",
+    "start-add": "clear && node add.js",
+    "start-sub": "clear && node sub.js",
+    "start-mult": "clear && node mult.js",
+    "start-div": "clear && node div.js"
+
+  },
+  "keywords": [],
+  "author": "Mariana Abdias",
+  "license": "ISC"
+}
