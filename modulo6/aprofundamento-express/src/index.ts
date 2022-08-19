@@ -1298,7 +1298,7 @@ app.get('/afazeres/:userId', (req:Request, res:Response) => {
   const user = afazeres.find(user => {
     return user.userId === Number(userId)
   })
-  return res.send(user)
+  return res.status(200).send(user)
 })
 
 // Exercício 9
