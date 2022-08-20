@@ -1294,8 +1294,8 @@ app.delete('/afazeres/:afazerId', (req:Request, res:Response) => {
 // Exercício 8
 app.get('/afazeres/:userId', (req:Request, res:Response) => {
   const userId = req.params.userId
-  // find: encontra o primeiro elemento que retornar e atenda a condição
-  const user = afazeres.find(user => {
+ 
+  const user = afazeres.filter(user => {
     return user.userId === Number(userId)
   })
   return res.status(200).send(user)
