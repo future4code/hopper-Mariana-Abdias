@@ -1,37 +1,37 @@
 import { Request, Response } from 'express'
 import connection from '../data/connection'
 
-export const getAllUsers = async (
+export const getAllUsersByType = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   try {
     let statusCode = 400
-    let nome = req.query.nome as string
-    // let order = req.query.order as string
+    const type: string = req.params.type;
+
+    if (type.toUpperCase() !== "OPERATIONS" &&
+    type.toUpperCase() !== "TEACHER" &&
+    type.toUpperCase() !== "CX"
+    ) {
+      statusCode = 422;
+      throw new Error(`"type" value isn´t a valid one! It should be "operations", "teacher"
+      or "cx" to be a valid one! Please, try again :)`)
+      }
 
     const result = await connection.raw(`
     SELECT id, name, email, type
     FROM aula48_exercicio
-    WHERE name LIKE "%${nome}%";
+    WHERE type = "${type}";
     `)
-
-    if (!nome) {
-      nome = '%'
-    }
-
-  //   if (order && order.toUpperCase() !== "ASC" && order.toUpperCase() !== "DESC") {
-  //     order = "ASC"
-  //  }
 
     if (!result[0].length) {
       statusCode = 404
-      throw new Error('No Users found')
+      throw new Error('No Types found')
     }
 
     if (result[0].length < 1) {
       statusCode = 404
-      throw new Error('Nenhum Usuário encontrado')
+      throw new Error('Este tipo não foi encontrado')
     }
 
     res.status(200).send(result[0])
