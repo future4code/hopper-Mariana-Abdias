@@ -1,13 +1,20 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-// import { ping } from './endpoints/ping'
-// import { createUser } from './endpoints/createUser'
-// import { getUsers } from './endpoints/getUsers'
-// import { createProduct } from './endpoints/createProduct'
-// import { getProducts } from './endpoints/getProducts'
-// import { createPurchase } from './endpoints/createPurchase'
-// import { getUserPurchases } from './endpoints/getUserPurchases'
+import { ping } from './endpoints/ping'
+import { getTurmasAtivas } from './endpoints/getTurmasAtivas'
+import { createTurma } from './endpoints/createTurma'
+import { updateModuloTurma } from './endpoints/updateModuloTurma'
+import { createDocente } from './endpoints/createDocente'
+import { getDocentes } from './endpoints/getDocentes'
+import { getDocenteByNome } from './endpoints/getDocenteByNome'
+import { createEstudante } from './endpoints/createEstudante'
+import { getEstudantes } from './endpoints/getEstudantes'
+import { getEstudanteByNome } from './endpoints/getEstudanteByNome'
+import { updateEstudanteTurma } from './endpoints/updateEstudanteTurma'
+import { updateDocenteTurma } from './endpoints/updateDocenteTurma'
+
+
 
 
 dotenv.config()
@@ -20,25 +27,42 @@ app.listen(process.env.PORT || 3003, () => {
   console.log(`Servidor rodando na porta ${process.env.PORT || 3003}`)
 })
 
-// app.get("/ping", ping)
+app.get("/ping", ping)
 
-// // Exercício 1 - Create users
-// app.post("/users", createUser)
+// Create turma
+app.post("/turmas", createTurma)
 
-// // Exercício 2 - Get users
-// app.get("/users", getUsers)
+// Get turmas
+app.get("/turmas", getTurmasAtivas)
 
-// // Exercício 3 - Create product
-// app.post("/products", createProduct)
+// Update Módulo turmas
+app.put("/turmas/modulo/:nome", updateModuloTurma)
 
-// // Exercício 4 - Get products
-// app.get("/products", getProducts)
+// Create docente
+app.post("/docentes", createDocente)
 
-// // Exercício 5 - Create purchase
-// app.post("/purchases", createPurchase)
+// Get docentes
+app.get("/docentes", getDocentes)
 
-// // Exercício 6 - Get user purchases
-// app.get("/users/:id/purchases", getUserPurchases)
+// Get docente by nome
+app.get("/docentes/:nome", getDocenteByNome)
+
+// Update Docente turmas
+app.put("/docentes/edited/:nome", updateDocenteTurma)
+
+// Create estudante
+app.post("/estudantes", createEstudante)
+
+// Get estudantes
+app.get("/estudantes", getEstudantes)
+
+// Get estudante by nome
+app.get("/estudantes/:nome", getEstudanteByNome)
+
+// Update Aluno turmas
+app.put("/estudantes/edited/:nome", updateEstudanteTurma)
+
+
 
 
 

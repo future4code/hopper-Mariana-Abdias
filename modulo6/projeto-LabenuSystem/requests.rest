@@ -1,39 +1,74 @@
 ### Endpoint de teste
 GET http://localhost:3003/ping
 
-### Exercício 1 - Create user
-POST http://localhost:3003/users
+### Create turma
+POST http://localhost:3003/turmas
 Content-Type: application/json
 
 {
-    "email": "teste2@gmail.com",
-    "password": "teste1234"
+    "nome": "Siqueira",
+    "modulo": 4
 }
 
-### Exercício 2 - Get users
-GET http://localhost:3003/users
+### Get turmas ativas
+GET http://localhost:3003/turmas
 
-### Exercício 3 - Create product
-POST http://localhost:3003/products
+### Update Módulo Turma
+PUT http://localhost:3003/turmas/modulo/Siqueira
 Content-Type: application/json
 
 {
-    "name": "Teste Product",
-    "price": 500
+    "modulo": 5
 }
 
-### Exercício 4 - Get products
-GET http://localhost:3003/products
-
-### Exercício 5 - Create purchase
-POST http://localhost:3003/purchases
+### Create docente
+POST http://localhost:3003/docentes
 Content-Type: application/json
 
 {
-    "userId": "103",
-    "productId": "203",
-    "quantity": 4
+    "nome": "Rodrigo",
+    "email": "rodrigo@gmail.com",
+    "data_nasc": "1990/05/26",
+    "turma_id": 101
+
 }
 
-### Exercício 6 - Get user purchases
-GET http://localhost:3003/users/103/purchases
+### Get docentes
+GET http://localhost:3003/docentes
+
+### Get Docente by Nome
+GET http://localhost:3003/docentes/Rodrigo
+
+### Update Docente Turma
+PUT http://localhost:3003/docentes/edited/Rodrigo
+Content-Type: application/json
+
+{
+    "turma_id": 103
+}
+
+### Create estudante
+POST http://localhost:3003/estudantes
+Content-Type: application/json
+
+{
+    "nome": "Kenzo",
+    "email": "kenzo@gmail.com",
+    "data_nasc": "1995/06/22",
+    "turma_id": 103
+
+}
+
+### Get estudantes
+GET http://localhost:3003/estudantes
+
+### Get Estudante by Nome
+GET http://localhost:3003/estudantes/Kenzo
+
+### Update Estudante Turma
+PUT http://localhost:3003/estudantes/edited/Kenzo
+Content-Type: application/json
+
+{
+    "turma_id": 103
+}

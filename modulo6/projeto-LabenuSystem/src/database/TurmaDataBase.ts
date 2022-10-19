@@ -1,29 +1,30 @@
-// import { User } from '../models/Turma'
-// import BaseDatabase from './BaseDatabase'
+import { Turma } from '../models/Turma'
+import BaseDatabase from './BaseDatabase'
+import { TABLE_TURMA } from './tableNames'
 
-// export class UserDatabase extends BaseDatabase {
-//   public static TABLE_USERS = 'Labe_Users'
-//   // outra opção
-//   // private TABLE_USERS = "Labe_Users";
+export class TurmaDatabase extends BaseDatabase {
+  public static TABLE_TURMA = 'Turmas'
 
-//   public async getAllUsers() {
-//     const result = await BaseDatabase.connection(
-//       UserDatabase.TABLE_USERS
-//     ).select()
-//     return result
-//   }
+  public async getAllTurmasActive() {
+    const result = await BaseDatabase.connection(
+      TurmaDatabase.TABLE_TURMA
+    ).select()
+    .where("modulo", ">", 0)
+    return result
+  }
 
-//   public async createUser(user: User) {
-//     await BaseDatabase.connection(UserDatabase.TABLE_USERS).insert({
-//       id: user.getId(),
-//       email: user.getEmail(),
-//       password: user.getPassword()
-//     })
-//   }
-//   public async getUserById(id: string) {
-//     const result = await BaseDatabase.connection(UserDatabase.TABLE_USERS)
-//       .select()
-//       .where({ id })
-//     return result
-//   }
-// }
+  public async createTurma(turma: Turma) {
+    await BaseDatabase.connection(TurmaDatabase.TABLE_TURMA).insert({
+      id: turma.getId(),
+      nome: turma.getNome(),
+      modulo: turma.getModulo()
+    })
+  }
+
+  public async updateModuloTurma(nome: string, modulo: number) {
+    await BaseDatabase.connection(TurmaDatabase.TABLE_TURMA)
+    .update({modulo})
+    .where({nome})
+  }
+
+}
