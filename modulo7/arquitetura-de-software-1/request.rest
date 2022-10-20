@@ -1,0 +1,15 @@
+### Exercício 1
+POST http://localhost:3003/userArq
+Content-Type: application/json
+
+{
+    "name": "Fabiana",
+    "email": "bia@email.com",
+    "password": "123456"
+}
+
+### Exercício 2
+GET http://localhost:3003/userArq
+
+### Exercício 3
+DELETE  http://localhost:3003/userArq/1666224481228
