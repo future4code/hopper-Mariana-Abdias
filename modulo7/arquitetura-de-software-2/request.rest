@@ -1,0 +1,25 @@
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "Bia",
+    "email": "bia@email.com",
+    "password": "123456"
+}
+
+### Exercício 1
+GET http://localhost:3003/user/all
+
+###
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title": "Filme 1",
+    "description": "Um filme qualquer",
+    "duration_in_minutes": 55,
+    "year_of_release": 2020
+}
+
+### Exercício 1
+GET http://localhost:3003/movie/all
