@@ -1,0 +1,7 @@
+export const TABLE_TURMA = "Turmas"
+export const TABLE_ESTUDANTE = "Estudantes"
+export const TABLE_DOCENTE = "Docentes"
+export const TABLE_HOBBIES = "Hobbies"
+export const TABLE_ESPECIALIDADES = "Especialidades"
+export const TABLE_ESTUDANTE_HOBBIES = "Estudantes_Hobbies"
+export const TABLE_DOCENTE_ESPECIALIDADES = "Docentes_Especialidades"

@@ -1,0 +1,74 @@
+### Endpoint de teste
+GET http://localhost:3003/ping
+
+### Create turma
+POST http://localhost:3003/turmas
+Content-Type: application/json
+
+{
+    "nome": "Siqueira",
+    "modulo": 4
+}
+
+### Get turmas ativas
+GET http://localhost:3003/turmas
+
+### Update Módulo Turma
+PUT http://localhost:3003/turmas/modulo/Siqueira
+Content-Type: application/json
+
+{
+    "modulo": 5
+}
+
+### Create docente
+POST http://localhost:3003/docentes
+Content-Type: application/json
+
+{
+    "nome": "Rodrigo",
+    "email": "rodrigo@gmail.com",
+    "data_nasc": "1990/05/26",
+    "turma_id": 101
+
+}
+
+### Get docentes
+GET http://localhost:3003/docentes
+
+### Get Docente by Nome
+GET http://localhost:3003/docentes/Rodrigo
+
+### Update Docente Turma
+PUT http://localhost:3003/docentes/edited/Rodrigo
+Content-Type: application/json
+
+{
+    "turma_id": 103
+}
+
+### Create estudante
+POST http://localhost:3003/estudantes
+Content-Type: application/json
+
+{
+    "nome": "Kenzo",
+    "email": "kenzo@gmail.com",
+    "data_nasc": "1995/06/22",
+    "turma_id": 103
+
+}
+
+### Get estudantes
+GET http://localhost:3003/estudantes
+
+### Get Estudante by Nome
+GET http://localhost:3003/estudantes/Kenzo
+
+### Update Estudante Turma
+PUT http://localhost:3003/estudantes/edited/Kenzo
+Content-Type: application/json
+
+{
+    "turma_id": 103
+}
